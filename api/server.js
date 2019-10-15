@@ -8,14 +8,14 @@ const usersRouter = require('../users/users-router.js');
 
 const sessionConfig = {
   name: 'ohfosho', // default would be SID (change so people don't know what library you're using)
-  secret: 'Keep it secret, keep it safe!', 
+  secret: 'Keep it secret, keep it safe!', // use an environment variable for this
   cookie: {
-    httpOnly: false, // means JS can't allow cookie info
+    httpOnly: true, // means JS can't allow cookie info
     maxAge: 1000 * 60 * 60, // cookie is good for one hour (converted to MS)
     secure: false, // true in production, false in development
   },
   resave: false, // to avoid rechurning
-  saveUninitialized: false,
+  saveUninitialized: true,
 }
 
 const server = express();
